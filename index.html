@@ -219,6 +219,8 @@
             border: 3px solid #ffe4f4;
             transition: transform 0.3s ease;
         }
+
+        
         
         .hobby-card:hover {
             transform: translateY(-10px);
@@ -437,9 +439,15 @@
                     <h3>Music</h3>
                     <p>Music is the best thing in the world!</p>
                 </div>
+                <div class="hobby-card">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h3>Games</h3>
+                    <p>I play a lot of games from a lot of different genres, scroll down to learn more!</p>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Gallery Section -->
     <section id="gallery" style="background: rgba(230, 243, 255, 0.5);">
@@ -456,7 +464,67 @@
         </div>
     </section>
 
+    <!-- Fixed Floating Music Player -->
+<div class="floating-player" style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
+    <div class="player-toggle" style="width: 70px; height: 70px; border-radius: 50%; background: #ff7eb9; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 8px 25px rgba(255, 126, 185, 0.4); border: 4px solid white; transition: all 0.3s ease;">
+        <i class="fas fa-music"></i>
+        <div class="music-note" style="position: absolute; font-size: 1.2rem; top: -5px; right: -5px; animation: bounce 2s infinite;">🎵</div>
+    </div>
     
+    <div class="player-popup" style="position: absolute; bottom: 85px; right: 0; width: 320px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 25px; padding: 25px; box-shadow: 0 15px 40px rgba(255, 126, 185, 0.2); border: 3px solid #ffcfe5; display: none; z-index: 1001;">
+        <!-- Close button -->
+        <div class="close-player" style="position: absolute; top: 15px; right: 15px; color: #ff7eb9; cursor: pointer; font-size: 1.2rem;">
+            <i class="fas fa-times"></i>
+        </div>
+        
+        <!-- Song Info -->
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <div class="album-art" style="width: 70px; height: 70px; border-radius: 15px; background: linear-gradient(135deg, #ffb8e2, #a6c8ff); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <i class="fas fa-headphones"></i>
+            </div>
+            <div style="flex: 1;">
+                <h4 style="color: #ff7eb9; margin: 0 0 5px 0; font-family: 'Comic Neue', cursive; font-size: 1.2rem;">Now Playing ✨</h4>
+                <p id="miniSongTitle" style="color: #8a7ba6; margin: 0; font-weight: 600;">Select a song</p>
+                <p id="miniSongArtist" style="color: #b8a8cc; margin: 5px 0 0 0; font-size: 0.9rem;">Click play to start</p>
+            </div>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div style="margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-family: 'Comic Neue', cursive; color: #ff7eb9; font-size: 0.9rem;">
+                <span id="miniCurrentTime">0:00</span>
+                <span id="miniTotalTime">0:00</span>
+            </div>
+            <div id="miniProgressContainer" style="width: 100%; height: 8px; background: #ffe4f4; border-radius: 4px; overflow: hidden; cursor: pointer;">
+                <div id="miniProgressBar" style="width: 0%; height: 100%; background: linear-gradient(to right, #ffb8e2, #ff7eb9); border-radius: 4px;"></div>
+            </div>
+        </div>
+        
+        <!-- Controls -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px;">
+            <button id="miniPrevBtn" class="mini-btn" style="width: 45px; height: 45px; border-radius: 50%; background: #ffe4f4; border: 2px solid #ffcfe5; color: #ff7eb9; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button id="miniPlayBtn" class="mini-btn" style="width: 60px; height: 60px; border-radius: 50%; background: #ff7eb9; border: none; color: white; font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease;">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="miniNextBtn" class="mini-btn" style="width: 45px; height: 45px; border-radius: 50%; background: #ffe4f4; border: 2px solid #ffcfe5; color: #ff7eb9; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        
+        <!-- Volume -->
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <i class="fas fa-volume-up" style="color: #ff7eb9; font-size: 1.1rem;"></i>
+            <input type="range" id="miniVolume" min="0" max="100" value="70" style="flex: 1; height: 6px; border-radius: 3px; accent-color: #ff7eb9; cursor: pointer;">
+            <span id="miniVolumeValue" style="color: #8a7ba6; font-size: 0.9rem; min-width: 35px;">70%</span>
+        </div>
+        
+
+            </button>
+        </div>
+    </div>
+</div>
 
     <!-- Footer -->
     <footer>
@@ -524,6 +592,331 @@
                 });
             });
         });
+
+
+ // SIMPLE WORKING MUSIC PLAYER
+class SimpleMusicPlayer {
+    constructor() {
+        this.audio = null;
+        this.isPlaying = false;
+        this.currentSong = 0;
+        this.songs = [
+            {
+                title: "Primadonna",
+                artist: "MARINA",
+                file: "music/Primadonna.mp3",
+                color: "#FFB8E2"
+            },
+             {
+                title: "Buriki No Dance",
+                artist: "Ado",
+                file: "music/Adoブリキノダンス 歌いました.mp3",
+                color: "#FFB8E2"
+            },
+             {
+                title: "girlfailure.",
+                artist: "ISSBROKIE",
+                file: "music/girlfailure..mp3",
+                color: "#FFB8E2"
+            },
+             {
+                title: "Thanatosis",
+                artist: "DAMNED",
+                file: "music/DAMNED -Thanatosis- Official Music Video [96rcpVrGzCY].mp3",
+                color: "#FFB8E2"
+            },
+    
+            
+
+        ];
+        
+        this.init();
+    }
+    
+    init() {
+        this.createAudioElement();
+        this.bindEvents();
+        this.loadSong(0);
+    }
+    
+    createAudioElement() {
+        // Create audio element
+        this.audio = new Audio();
+        this.audio.volume = 0.7;
+        this.audio.preload = "auto";
+        
+        // Add error handling
+        this.audio.onerror = (e) => {
+            console.error("Audio error:", e);
+            alert("Couldn't load audio file. Using fallback...");
+            this.useFallbackAudio();
+        };
+        
+        // Update progress
+        this.audio.ontimeupdate = () => this.updateProgress();
+        this.audio.onloadedmetadata = () => this.updateSongInfo();
+        this.audio.onended = () => this.next();
+    }
+    
+    bindEvents() {
+        // Make sure elements exist before binding
+        setTimeout(() => {
+            // Toggle player visibility
+            const toggleBtn = document.querySelector('.player-toggle');
+            if (toggleBtn) {
+                toggleBtn.onclick = (e) => {
+                    const popup = document.querySelector('.player-popup');
+                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+                    e.stopPropagation();
+                };
+            }
+            
+            // Play/Pause button - SIMPLE DIRECT BINDING
+            const playBtn = document.getElementById('miniPlayBtn');
+            if (playBtn) {
+                playBtn.onclick = () => {
+                    console.log("Play button clicked!");
+                    this.togglePlay();
+                };
+            }
+            
+            // Next button
+            const nextBtn = document.getElementById('miniNextBtn');
+            if (nextBtn) {
+                nextBtn.onclick = () => this.next();
+            }
+            
+            // Previous button
+            const prevBtn = document.getElementById('miniPrevBtn');
+            if (prevBtn) {
+                prevBtn.onclick = () => this.previous();
+            }
+            
+            // Volume control
+            const volumeSlider = document.getElementById('miniVolume');
+            if (volumeSlider) {
+                volumeSlider.oninput = (e) => {
+                    this.audio.volume = e.target.value / 100;
+                    document.getElementById('miniVolumeValue').textContent = e.target.value + '%';
+                };
+            }
+            
+            // Progress bar click
+            const progressContainer = document.getElementById('miniProgressContainer');
+            if (progressContainer) {
+                progressContainer.onclick = (e) => {
+                    const rect = progressContainer.getBoundingClientRect();
+                    const percent = (e.clientX - rect.left) / rect.width;
+                    this.audio.currentTime = percent * this.audio.duration;
+                };
+            }
+            
+            // Close button
+            const closeBtn = document.querySelector('.close-player');
+            if (closeBtn) {
+                closeBtn.onclick = () => {
+                    document.querySelector('.player-popup').style.display = 'none';
+                };
+            }
+        }, 100); // Small delay to ensure DOM is ready
+    }
+    
+    loadSong(index) {
+        if (index < 0 || index >= this.songs.length) return;
+        
+        this.currentSong = index;
+        const song = this.songs[index];
+        
+        console.log("Loading song:", song.title);
+        
+        // Update UI first
+        document.getElementById('miniSongTitle').textContent = song.title;
+        document.getElementById('miniSongArtist').textContent = song.artist;
+        document.querySelector('.album-art').style.background = 
+            `linear-gradient(135deg, ${song.color}, ${this.lightenColor(song.color, 30)})`;
+        
+        // Set audio source
+        this.audio.src = song.file;
+        
+        // Preload
+        this.audio.load();
+    }
+    
+    togglePlay() {
+        console.log("togglePlay called, isPlaying:", this.isPlaying);
+        
+        if (this.isPlaying) {
+            this.pause();
+        } else {
+            this.play();
+        }
+    }
+    
+    play() {
+        console.log("Attempting to play...");
+        
+        const playPromise = this.audio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                console.log("Audio playing successfully!");
+                this.isPlaying = true;
+                this.updatePlayButton();
+            }).catch(error => {
+                console.error("Play failed:", error);
+                // Try with user interaction fallback
+                this.handlePlayError();
+            });
+        }
+    }
+    
+    pause() {
+        this.audio.pause();
+        this.isPlaying = false;
+        this.updatePlayButton();
+    }
+    
+    handlePlayError() {
+        // Show a cute message to click the button again
+        const playBtn = document.getElementById('miniPlayBtn');
+        playBtn.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+        playBtn.title = "Click again to play (browser restriction)";
+        
+        setTimeout(() => {
+            this.updatePlayButton();
+        }, 2000);
+    }
+    
+    updatePlayButton() {
+        const playBtn = document.getElementById('miniPlayBtn');
+        if (!playBtn) return;
+        
+        const icon = playBtn.querySelector('i');
+        if (this.isPlaying) {
+            icon.className = 'fas fa-pause';
+            playBtn.style.background = '#ff4d94';
+            playBtn.style.transform = 'scale(1.1)';
+        } else {
+            icon.className = 'fas fa-play';
+            playBtn.style.background = '#ff7eb9';
+            playBtn.style.transform = 'scale(1)';
+        }
+    }
+    
+    next() {
+        let nextIndex = this.currentSong + 1;
+        if (nextIndex >= this.songs.length) nextIndex = 0;
+        this.loadSong(nextIndex);
+        if (this.isPlaying) {
+            this.play();
+        }
+    }
+    
+    previous() {
+        let prevIndex = this.currentSong - 1;
+        if (prevIndex < 0) prevIndex = this.songs.length - 1;
+        this.loadSong(prevIndex);
+        if (this.isPlaying) {
+            this.play();
+        }
+    }
+    
+    updateProgress() {
+        if (!this.audio.duration) return;
+        
+        const percent = (this.audio.currentTime / this.audio.duration) * 100;
+        const progressBar = document.getElementById('miniProgressBar');
+        if (progressBar) {
+            progressBar.style.width = percent + '%';
+        }
+        
+        // Update times
+        document.getElementById('miniCurrentTime').textContent = this.formatTime(this.audio.currentTime);
+        document.getElementById('miniTotalTime').textContent = this.formatTime(this.audio.duration);
+    }
+    
+    updateSongInfo() {
+        // Already updated in loadSong
+    }
+    
+    formatTime(seconds) {
+        if (isNaN(seconds)) return "0:00";
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+    
+    lightenColor(color, percent) {
+        const num = parseInt(color.replace("#", ""), 16);
+        const amt = Math.round(2.55 * percent);
+        const R = Math.min(255, (num >> 16) + amt);
+        const G = Math.min(255, (num >> 8 & 0x00FF) + amt);
+        const B = Math.min(255, (num & 0x0000FF) + amt);
+        return `#${(R << 16 | G << 8 | B).toString(16).padStart(6, '0')}`;
+    }
+    
+
+}
+
+// Initialize when page loads
+window.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM loaded, initializing player...");
+    
+    // Create player instance
+    window.player = new SimpleMusicPlayer();
+    
+    // Add cute floating notes animation
+    addFloatingNotes();
+    
+    // Force player popup to be hidden initially
+    document.querySelector('.player-popup').style.display = 'none';
+});
+
+function addFloatingNotes() {
+    const notes = ['🎵', '🎶', '🎧', '✨', '🌸'];
+    const container = document.querySelector('.floating-player');
+    
+    for (let i = 0; i < 3; i++) {
+        const note = document.createElement('div');
+        note.textContent = notes[Math.floor(Math.random() * notes.length)];
+        note.style.cssText = `
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 999;
+            animation: floatNote ${3 + i}s ease-in-out infinite;
+            animation-delay: ${i}s;
+        `;
+        
+        // Add animation
+        if (!document.getElementById('noteAnimations')) {
+            const style = document.createElement('style');
+            style.id = 'noteAnimations';
+            style.textContent = `
+                @keyframes floatNote {
+                    0% {
+                        transform: translate(0, 0) rotate(0deg);
+                        opacity: 0;
+                    }
+                    10% {
+                        opacity: 0.8;
+                    }
+                    90% {
+                        opacity: 0.8;
+                    }
+                    100% {
+                        transform: translate(${Math.random() * 80 - 40}px, ${Math.random() * 100 - 150}px) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        container.appendChild(note);
+    }
+}
     </script>
 </body>
 </html>
