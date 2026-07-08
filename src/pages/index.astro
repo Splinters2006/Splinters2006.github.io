@@ -1,0 +1,1449 @@
+---
+const navItems = [
+	{ href: "#home", icon: "fa-home", label: "Home" },
+	{ href: "#about", icon: "fa-heart", label: "About" },
+	{ href: "#hobbies", icon: "fa-star", label: "Hobbies" },
+	{ href: "#gallery", icon: "fa-images", label: "Gallery" },
+	{ href: "#games", icon: "fa-gamepad", label: "Games" },
+];
+
+const tags = ["Dreamer ☁️", "Coffee Lover ☕", "Bookworm 📚", "Cat Person 🐱", "Sunshine Collector ☀️"];
+
+const hobbies = [
+	{
+		icon: "fa-book-open",
+		title: "Reading",
+		text: "I read a lot, be it scientific journals, the news, or just novels, I love them all!",
+	},
+	{
+		icon: "fa-cookie-bite",
+		title: "Baking & Cooking",
+		text: "Making cute pastries and sharing them with friends.",
+	},
+	{
+		icon: "fa-camera",
+		title: "Photography",
+		text: "Capturing moments that spark joy (although I am not good at it)",
+	},
+	{
+		icon: "fa-music",
+		title: "Music",
+		text: "Music is the best thing in the world!",
+	},
+	{
+		icon: "fa-gamepad",
+		title: "Games",
+		text: "I play a lot of games from a lot of different genres, scroll down to learn more!",
+	},
+];
+
+const galleryIcons = ["fa-mug-hot", "fa-book", "fa-palette", "fa-leaf", "fa-moon", "fa-rainbow"];
+
+const games = [
+	{
+		theme: "pink",
+		icon: "🎀",
+		title: "League of Legends",
+		text: "Proud Zeri main",
+		tags: ["MOBA ⚔️", "Team Play 👥", "Competitive 🏆"],
+		statusIcon: "fa-heart",
+		status: "Peak gold •",
+		float: "🌸",
+	},
+	{
+		theme: "blue",
+		icon: "✨",
+		title: "Genshin Impact",
+		text: "Exploring beautiful landscapes and collecting characters! My favorite character is Mualani 🐟",
+		tags: ["Adventure 🗺️", "Gacha 🎴", "Open World 🌍"],
+		statusIcon: "fa-star",
+		status: "AR 60 •",
+		float: "⭐",
+	},
+	{
+		theme: "green",
+		icon: "🍄",
+		title: "Terraria",
+		text: "Peak game!!! Definitely try the calamity mod if you havent!",
+		tags: ["Cozy 🏡", "RPG ⚔️", "Adventure 🗺️"],
+		statusIcon: "fa-leaf",
+		status: "100% achievements •",
+		float: "🌿",
+	},
+];
+
+const stats = [
+	{ icon: "🎮", label: "Total Games Played", value: "250+", color: "pink" },
+	{ icon: "⏰", label: "Total Playtime", value: "too much", color: "blue" },
+	{ icon: "❤️", label: "Favorite Genre", value: "Games that I can nerd out about", color: "green" },
+	{ icon: "🏆", label: "Highest Achievement", value: "Terraria infernum", color: "purple" },
+];
+
+const songs = [
+	{
+		title: "Primadonna",
+		artist: "MARINA",
+		file: "/music/Primadonna.mp3",
+		color: "#ffb8e2",
+	},
+	{
+		title: "Buriki No Dance",
+		artist: "Ado",
+		file: "/music/Adoブリキノダンス 歌いました.mp3",
+		color: "#ffb8e2",
+	},
+	{
+		title: "girlfailure.",
+		artist: "ISSBROKIE",
+		file: "/music/girlfailure..mp3",
+		color: "#ffb8e2",
+	},
+	{
+		title: "Thanatosis",
+		artist: "DAMNED",
+		file: "/music/DAMNED -Thanatosis- Official Music Video [96rcpVrGzCY].mp3",
+		color: "#ffb8e2",
+	},
+	{
+		title: "SPAGHETTI",
+		artist: "LE SSERAFIM",
+		file: "/music/LE SSERAFIM (르세라핌) 'SPAGHETTI (feat. j-hope of BTS)' OFFICIAL MV.mp3",
+		color: "#ffb8e2",
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Splinters' cozy corner: hobbies, games, music, and little joys."
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Nunito:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<title>Splinters ✨ | Cozy Corner</title>
+	</head>
+	<body>
+		<div class="emoji-layer" aria-hidden="true"></div>
+
+		<header class="site-header">
+			<div class="container">
+				<nav class="cloud-nav" aria-label="Main navigation">
+					{
+						navItems.map((item) => (
+							<a href={item.href} class="nav-btn">
+								<i class={`fas ${item.icon}`} aria-hidden="true" />
+								{item.label}
+							</a>
+						))
+					}
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section id="home" class="hero">
+				<div class="container">
+					<div class="hero-content">
+						<div class="profile-pic">
+							<img src="/assets/mualani-genshin-impact.gif" alt="Animated Mualani profile picture" />
+						</div>
+						<h1>Hi, I'm Splinters! 🌸</h1>
+						<p class="cute-title">A cozy soul who loves little joys and big dreams ✨</p>
+
+						<div class="tag-cloud" aria-label="Personal tags">
+							{tags.map((tag) => <span class="tag">{tag}</span>)}
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="about" class="section section-pink">
+				<div class="container">
+					<h2 class="section-title">About Me 🎀</h2>
+					<div class="about-card">
+						<p class="intro-copy">
+							Hello there! I'm Splinters, a Trans woman from Belgium. I find happiness in small
+							things, like talking to friends or listening to music 💖
+						</p>
+						<p>My days are filled with:</p>
+						<ul class="joy-list">
+							<li>🌸 Morning cup of coffee</li>
+							<li>📸 Taking pictures of my pets</li>
+							<li>📞 Calling with my friends</li>
+							<li>✨ Finding new songs for my playlist</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section id="hobbies" class="section">
+				<div class="container">
+					<h2 class="section-title">My Happy Things 🎨</h2>
+					<div class="hobbies-grid">
+						{
+							hobbies.map((hobby) => (
+								<article class="hobby-card">
+									<i class={`fas ${hobby.icon}`} aria-hidden="true" />
+									<h3>{hobby.title}</h3>
+									<p>{hobby.text}</p>
+								</article>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<section id="gallery" class="section section-blue">
+				<div class="container">
+					<h2 class="section-title">My Cozy Corner 📸</h2>
+					<div class="gallery-grid">
+						{
+							galleryIcons.map((icon) => (
+								<div class="gallery-item">
+									<i class={`fas ${icon}`} aria-hidden="true" />
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+			<section id="games" class="section section-soft-blue">
+				<div class="container">
+					<h2 class="section-title">Games I Love 🎮✨</h2>
+					<div class="games-grid">
+						{
+							games.map((game) => (
+								<article class={`game-card game-card-${game.theme}`}>
+									<div class="game-icon">{game.icon}</div>
+									<h3>{game.title}</h3>
+									<p>{game.text}</p>
+									<div class="game-tags">
+										{game.tags.map((tag, index) => (
+											<span class={`game-tag game-tag-${index}`}>{tag}</span>
+										))}
+									</div>
+									<div class="game-status">
+										<i class={`fas ${game.statusIcon}`} aria-hidden="true" />
+										<span>{game.status}</span>
+									</div>
+									<div class="game-float" aria-hidden="true">{game.float}</div>
+								</article>
+							))
+						}
+					</div>
+
+					<div class="game-stats">
+						<h3>My Gaming Stats 📊</h3>
+						<div class="stats-grid">
+							{
+								stats.map((stat) => (
+									<div class={`stat-card stat-${stat.color}`}>
+										<div class="stat-icon">{stat.icon}</div>
+										<div class="stat-label">{stat.label}</div>
+										<div class="stat-value">{stat.value}</div>
+									</div>
+								))
+							}
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<div class="floating-player">
+			<button class="player-toggle" type="button" aria-label="Open music player">
+				<i class="fas fa-music" aria-hidden="true"></i>
+				<span class="music-note" aria-hidden="true">🎵</span>
+			</button>
+
+			<div class="player-popup" aria-label="Music player">
+				<button class="close-player" type="button" aria-label="Close music player">
+					<i class="fas fa-times" aria-hidden="true"></i>
+				</button>
+
+				<div class="song-row">
+					<div class="album-art">
+						<i class="fas fa-headphones" aria-hidden="true"></i>
+					</div>
+					<div>
+						<h4>Now Playing ✨</h4>
+						<p id="miniSongTitle">Select a song</p>
+						<p id="miniSongArtist">Click play to start</p>
+					</div>
+				</div>
+
+				<div class="progress-wrap">
+					<div class="time-row">
+						<span id="miniCurrentTime">0:00</span>
+						<span id="miniTotalTime">0:00</span>
+					</div>
+					<div id="miniProgressContainer" class="progress-container">
+						<div id="miniProgressBar" class="progress-bar"></div>
+					</div>
+				</div>
+
+				<div class="player-controls">
+					<button id="miniPrevBtn" class="mini-btn" type="button" aria-label="Previous song">
+						<i class="fas fa-step-backward" aria-hidden="true"></i>
+					</button>
+					<button id="miniPlayBtn" class="mini-btn play-btn" type="button" aria-label="Play or pause">
+						<i class="fas fa-play" aria-hidden="true"></i>
+					</button>
+					<button id="miniNextBtn" class="mini-btn" type="button" aria-label="Next song">
+						<i class="fas fa-step-forward" aria-hidden="true"></i>
+					</button>
+				</div>
+
+				<label class="volume-row" for="miniVolume">
+					<i class="fas fa-volume-up" aria-hidden="true"></i>
+					<input type="range" id="miniVolume" min="0" max="100" value="70" />
+					<span id="miniVolumeValue">70%</span>
+				</label>
+			</div>
+		</div>
+
+		<footer>
+			<div class="container">
+				<p class="footer-lead">Thank you for visiting my little corner of the internet!</p>
+				<p>Remember: You're as wonderful as a field of flowers in springtime 🌼</p>
+				<p>Made with <span class="heart">💖</span> and lots of troubleshooting</p>
+				<p class="copyright">© Splinters • 2025 </p>
+			</div>
+		</footer>
+
+		<script define:vars={{ songs }}>
+			const getElement = (id) => document.getElementById(id);
+
+			document.querySelectorAll(".nav-btn").forEach((anchor) => {
+				anchor.addEventListener("click", (event) => {
+					event.preventDefault();
+					document.querySelector(anchor.getAttribute("href"))?.scrollIntoView({ behavior: "smooth" });
+				});
+			});
+
+			document.addEventListener("DOMContentLoaded", () => {
+				addHeroEmojis();
+				addGalleryHover();
+				window.player = new SimpleMusicPlayer(songs);
+				addFloatingNotes();
+			});
+
+			function addHeroEmojis() {
+				const emojis = ["🌸", "✨", "🎀", "💝", "💖", "🍰", "🐱", "📚", "☁️", "🌈"];
+				const layer = document.querySelector(".emoji-layer");
+				if (!layer) return;
+
+				for (let index = 0; index < 22; index++) {
+					const emoji = document.createElement("div");
+					emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+					emoji.className = "floating-emoji";
+					emoji.style.left = `${Math.random() * 100}%`;
+					emoji.style.setProperty("--start-y", `${Math.random() * 100}vh`);
+					emoji.style.setProperty("--drift-x", `${Math.random() * 42 - 21}vw`);
+					emoji.style.setProperty("--drift-y", `${Math.random() * 34 - 17}vh`);
+					emoji.style.fontSize = `${Math.random() * 18 + 18}px`;
+					emoji.style.animationDuration = `${Math.random() * 8 + 9}s`;
+					emoji.style.animationDelay = `${Math.random() * -12}s`;
+					layer.appendChild(emoji);
+				}
+			}
+
+			function addGalleryHover() {
+				document.querySelectorAll(".gallery-item").forEach((item) => {
+					const original = item.innerHTML;
+					item.addEventListener("mouseenter", () => {
+						const emojis = ["💖", "✨", "🌸", "🎨", "📸", "🍵"];
+						item.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+					});
+					item.addEventListener("mouseleave", () => {
+						item.innerHTML = original;
+					});
+				});
+			}
+
+			class SimpleMusicPlayer {
+				constructor(songList) {
+					this.songs = songList;
+					this.audio = new Audio();
+					this.audio.volume = 0.7;
+					this.audio.preload = "metadata";
+					this.isPlaying = false;
+					this.currentSong = 0;
+					this.bindEvents();
+					this.bindAudioEvents();
+					this.loadSong(0);
+				}
+
+				bindAudioEvents() {
+					this.audio.addEventListener("timeupdate", () => this.updateProgress());
+					this.audio.addEventListener("loadedmetadata", () => this.updateProgress());
+					this.audio.addEventListener("ended", () => this.next());
+					this.audio.addEventListener("error", () => this.handlePlayError());
+				}
+
+				bindEvents() {
+					document.querySelector(".player-toggle")?.addEventListener("click", (event) => {
+						const popup = document.querySelector(".player-popup");
+						if (!popup) return;
+						popup.classList.toggle("is-open");
+						event.stopPropagation();
+					});
+
+					document.querySelector(".close-player")?.addEventListener("click", () => {
+						document.querySelector(".player-popup")?.classList.remove("is-open");
+					});
+
+					getElement("miniPlayBtn")?.addEventListener("click", () => this.togglePlay());
+					getElement("miniNextBtn")?.addEventListener("click", () => this.next());
+					getElement("miniPrevBtn")?.addEventListener("click", () => this.previous());
+
+					getElement("miniVolume")?.addEventListener("input", (event) => {
+						this.audio.volume = event.target.value / 100;
+						getElement("miniVolumeValue").textContent = `${event.target.value}%`;
+					});
+
+					getElement("miniProgressContainer")?.addEventListener("click", (event) => {
+						if (!this.audio.duration) return;
+						const rect = event.currentTarget.getBoundingClientRect();
+						const percent = (event.clientX - rect.left) / rect.width;
+						this.audio.currentTime = percent * this.audio.duration;
+					});
+				}
+
+				loadSong(index) {
+					if (index < 0 || index >= this.songs.length) return;
+					this.currentSong = index;
+					const song = this.songs[index];
+					getElement("miniSongTitle").textContent = song.title;
+					getElement("miniSongArtist").textContent = song.artist;
+					document.querySelector(".album-art").style.background =
+						`linear-gradient(135deg, ${song.color}, ${this.lightenColor(song.color, 30)})`;
+					this.audio.src = encodeURI(song.file);
+					this.audio.load();
+				}
+
+				togglePlay() {
+					if (this.isPlaying) {
+						this.pause();
+						return;
+					}
+					this.play();
+				}
+
+				play() {
+					this.audio.play()
+						.then(() => {
+							this.isPlaying = true;
+							this.updatePlayButton();
+						})
+						.catch(() => this.handlePlayError());
+				}
+
+				pause() {
+					this.audio.pause();
+					this.isPlaying = false;
+					this.updatePlayButton();
+				}
+
+				next() {
+					this.loadSong((this.currentSong + 1) % this.songs.length);
+					if (this.isPlaying) this.play();
+				}
+
+				previous() {
+					this.loadSong((this.currentSong - 1 + this.songs.length) % this.songs.length);
+					if (this.isPlaying) this.play();
+				}
+
+				updateProgress() {
+					if (!this.audio.duration) return;
+					getElement("miniProgressBar").style.width =
+						`${(this.audio.currentTime / this.audio.duration) * 100}%`;
+					getElement("miniCurrentTime").textContent = this.formatTime(this.audio.currentTime);
+					getElement("miniTotalTime").textContent = this.formatTime(this.audio.duration);
+				}
+
+				updatePlayButton() {
+					const playBtn = getElement("miniPlayBtn");
+					const icon = playBtn?.querySelector("i");
+					if (!playBtn || !icon) return;
+					icon.className = this.isPlaying ? "fas fa-pause" : "fas fa-play";
+					playBtn.classList.toggle("is-playing", this.isPlaying);
+				}
+
+				handlePlayError() {
+					const playBtn = getElement("miniPlayBtn");
+					const icon = playBtn?.querySelector("i");
+					if (!playBtn || !icon) return;
+					icon.className = "fas fa-exclamation-circle";
+					playBtn.title = "Click again to play";
+					setTimeout(() => this.updatePlayButton(), 1600);
+				}
+
+				formatTime(seconds) {
+					if (Number.isNaN(seconds)) return "0:00";
+					const minutes = Math.floor(seconds / 60);
+					const remainingSeconds = Math.floor(seconds % 60);
+					return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+				}
+
+				lightenColor(color, percent) {
+					const number = Number.parseInt(color.replace("#", ""), 16);
+					const amount = Math.round(2.55 * percent);
+					const red = Math.min(255, (number >> 16) + amount);
+					const green = Math.min(255, ((number >> 8) & 0x00ff) + amount);
+					const blue = Math.min(255, (number & 0x0000ff) + amount);
+					return `#${((red << 16) | (green << 8) | blue).toString(16).padStart(6, "0")}`;
+				}
+			}
+
+			function addFloatingNotes() {
+				const notes = ["🎵", "🎶", "🎧", "✨", "🌸"];
+				const container = document.querySelector(".floating-player");
+				if (!container) return;
+
+				for (let index = 0; index < 3; index++) {
+					const note = document.createElement("div");
+					note.textContent = notes[Math.floor(Math.random() * notes.length)];
+					note.className = "floating-note";
+					note.style.animationDuration = `${3 + index}s`;
+					note.style.animationDelay = `${index}s`;
+					container.appendChild(note);
+				}
+			}
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		width: 100%;
+	}
+
+	body {
+		background: linear-gradient(135deg, #ffe8f5 0%, #e6f3ff 100%);
+		color: #6d5a72;
+		font-family: "Nunito", sans-serif;
+		line-height: 1.8;
+		overflow-x: clip;
+		width: 100%;
+	}
+
+	.container {
+		margin: 0 auto;
+		max-width: 1100px;
+		padding: 0 20px;
+		width: 100%;
+	}
+
+	.site-header {
+		backdrop-filter: blur(10px);
+		background: rgba(255, 255, 255, 0.7);
+		border-bottom: 2px dashed #ffb8e2;
+		padding: 30px 0;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
+	.cloud-nav {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24px;
+		justify-content: center;
+	}
+
+	.nav-btn {
+		align-items: center;
+		background: #ffffff;
+		border: 2px solid #ffcfe5;
+		border-radius: 50px;
+		box-shadow: 0 5px 15px rgba(255, 126, 185, 0.1);
+		color: #ff7eb9;
+		display: flex;
+		font-family: "Comic Neue", cursive;
+		font-weight: 700;
+		gap: 8px;
+		padding: 12px 25px;
+		text-decoration: none;
+		transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+		white-space: nowrap;
+	}
+
+	.nav-btn:hover,
+	.nav-btn:focus-visible {
+		background: #fff0f8;
+		box-shadow: 0 8px 20px rgba(255, 126, 185, 0.2);
+		transform: translateY(-5px);
+	}
+
+	.hero {
+		align-items: center;
+		display: flex;
+		min-height: 90vh;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+	}
+
+	.hero::before,
+	.hero::after {
+		animation: float 6s ease-in-out infinite;
+		opacity: 0.2;
+		position: absolute;
+	}
+
+	.hero::before {
+		content: "🌸";
+		font-size: clamp(48px, 10vw, 100px);
+		right: 10%;
+		top: 50px;
+	}
+
+	.hero::after {
+		animation-duration: 8s;
+		animation-direction: reverse;
+		bottom: 50px;
+		content: "✨";
+		font-size: clamp(42px, 8vw, 80px);
+		left: 10%;
+	}
+
+	.hero-content {
+		position: relative;
+		text-align: center;
+		width: 100%;
+		z-index: 2;
+	}
+
+	.profile-pic {
+		align-items: center;
+		background: linear-gradient(45deg, #ffb8e2, #a6c8ff);
+		border: 8px solid #ffffff;
+		border-radius: 50%;
+		box-shadow: 0 10px 30px rgba(255, 126, 185, 0.2);
+		display: flex;
+		height: 200px;
+		justify-content: center;
+		margin: 0 auto 30px;
+		overflow: hidden;
+		width: 200px;
+	}
+
+	.profile-pic img {
+		height: 100%;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	.tag,
+	.nav-btn,
+	.stat-value {
+		font-family: "Comic Neue", cursive;
+	}
+
+	h1 {
+		color: #ff7eb9;
+		font-size: clamp(2.5rem, 8vw, 3.5rem);
+		margin-bottom: 15px;
+		text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.8);
+	}
+
+	.cute-title {
+		color: #8a7ba6;
+		font-size: clamp(1.4rem, 4vw, 1.8rem);
+		font-weight: 300;
+		margin-bottom: 30px;
+	}
+
+	.tag-cloud {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+		justify-content: center;
+		margin: 40px 0;
+	}
+
+	.tag {
+		backdrop-filter: blur(5px);
+		background: rgba(255, 255, 255, 0.7);
+		border: 2px solid #ffd6eb;
+		border-radius: 30px;
+		color: #ff6ba9;
+		font-weight: 700;
+		line-height: 1.3;
+		padding: 10px 20px;
+	}
+
+	.section {
+		padding: 100px 0;
+	}
+
+	.section-pink {
+		background: rgba(255, 240, 248, 0.5);
+	}
+
+	.section-blue {
+		background: rgba(230, 243, 255, 0.5);
+	}
+
+	.section-soft-blue {
+		background: rgba(240, 248, 255, 0.5);
+	}
+
+	.section-title {
+		color: #ff7eb9;
+		font-size: clamp(2rem, 5vw, 2.5rem);
+		margin-bottom: 50px;
+		position: relative;
+		text-align: center;
+	}
+
+	.section-title::after {
+		background: linear-gradient(to right, #ffb8e2, #a6c8ff);
+		border-radius: 2px;
+		content: "";
+		display: block;
+		height: 4px;
+		margin: 10px auto;
+		width: 100px;
+	}
+
+	.about-card,
+	.game-stats {
+		backdrop-filter: blur(10px);
+		background: rgba(255, 255, 255, 0.8);
+		border: 3px solid #ffffff;
+		border-radius: 30px;
+		box-shadow: 0 15px 40px rgba(255, 126, 185, 0.1);
+		margin: 0 auto;
+		max-width: 800px;
+		padding: 40px;
+	}
+
+	.intro-copy {
+		font-size: 1.2rem;
+		margin-bottom: 20px;
+	}
+
+	.joy-list {
+		list-style: none;
+		margin-top: 10px;
+		padding-left: 20px;
+	}
+
+	.joy-list li {
+		margin-bottom: 10px;
+	}
+
+	.hobbies-grid,
+	.games-grid,
+	.gallery-grid,
+	.stats-grid {
+		display: grid;
+		gap: 30px;
+	}
+
+	.hobby-card,
+	.game-card,
+	.stat-card,
+	.gallery-item,
+	.song-row > div {
+		min-width: 0;
+	}
+
+	.hobbies-grid {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		margin-top: 40px;
+	}
+
+	.hobby-card,
+	.game-card {
+		background: #ffffff;
+		border-radius: 20px;
+		text-align: center;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.hobby-card {
+		border: 3px solid #ffe4f4;
+		padding: 30px;
+	}
+
+	.hobby-card p,
+	.game-card p,
+	.stat-value,
+	#miniSongTitle,
+	#miniSongArtist {
+		overflow-wrap: anywhere;
+	}
+
+	.hobby-card:hover,
+	.game-card:hover {
+		transform: translateY(-10px);
+	}
+
+	.hobby-card i {
+		color: #ff7eb9;
+		font-size: 2.5rem;
+		margin-bottom: 20px;
+	}
+
+	.gallery-grid {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		margin-top: 40px;
+	}
+
+	.gallery-item {
+		align-items: center;
+		background: rgba(255, 255, 255, 0.5);
+		border: 3px dashed #ffcfe5;
+		border-radius: 20px;
+		color: #ff7eb9;
+		display: flex;
+		font-size: 2rem;
+		height: 200px;
+		justify-content: center;
+		transition: transform 0.3s ease, background 0.3s ease;
+	}
+
+	.gallery-item:hover {
+		background: rgba(255, 255, 255, 0.8);
+		transform: scale(1.03);
+	}
+
+	.games-grid {
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		margin-top: 40px;
+	}
+
+	.game-card {
+		background: rgba(255, 255, 255, 0.9);
+		border: 3px solid #ffd6eb;
+		box-shadow: 0 10px 30px rgba(255, 126, 185, 0.1);
+		overflow: hidden;
+		padding: 25px;
+		position: relative;
+		text-align: left;
+	}
+
+	.game-card h3 {
+		margin-bottom: 10px;
+	}
+
+	.game-card p {
+		color: #8a7ba6;
+		font-size: 0.95rem;
+		margin-bottom: 15px;
+	}
+
+	.game-card-pink h3,
+	.game-card-pink .game-status {
+		color: #ff7eb9;
+	}
+
+	.game-card-blue {
+		border-color: #c3e6ff;
+		box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+	}
+
+	.game-card-blue h3,
+	.game-card-blue .game-status {
+		color: #4da6ff;
+	}
+
+	.game-card-green {
+		border-color: #d6ffc3;
+		box-shadow: 0 10px 30px rgba(102, 234, 126, 0.1);
+	}
+
+	.game-card-green h3,
+	.game-card-green .game-status {
+		color: #33cc66;
+	}
+
+	.game-icon {
+		align-items: center;
+		background: linear-gradient(135deg, #ffb8e2, #ff94d4);
+		border-radius: 20px;
+		color: #ffffff;
+		display: flex;
+		font-size: 2rem;
+		height: 70px;
+		justify-content: center;
+		margin-bottom: 20px;
+		width: 70px;
+	}
+
+	.game-card-blue .game-icon {
+		background: linear-gradient(135deg, #a6c8ff, #85b4ff);
+	}
+
+	.game-card-green .game-icon {
+		background: linear-gradient(135deg, #c3ffd6, #94ffb8);
+	}
+
+	.game-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-bottom: 20px;
+	}
+
+	.game-tag {
+		border-radius: 20px;
+		font-family: "Comic Neue", cursive;
+		font-size: 0.85rem;
+		padding: 5px 12px;
+	}
+
+	.game-tag-0 {
+		background: #e6f7ff;
+		color: #4da6ff;
+	}
+
+	.game-tag-1 {
+		background: #ffe6f2;
+		color: #ff66a3;
+	}
+
+	.game-tag-2 {
+		background: #e6ffec;
+		color: #33cc66;
+	}
+
+	.game-status {
+		align-items: center;
+		display: flex;
+		font-size: 0.9rem;
+		gap: 8px;
+	}
+
+	.game-float {
+		font-size: 3rem;
+		opacity: 0.1;
+		position: absolute;
+		right: -10px;
+		top: -10px;
+		z-index: 0;
+	}
+
+	.game-stats {
+		border: 2px dashed #ffcfe5;
+		margin-top: 60px;
+		max-width: none;
+	}
+
+	.game-stats h3 {
+		color: #ff7eb9;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.stats-grid {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		text-align: center;
+	}
+
+	.stat-icon {
+		font-size: 2.5rem;
+		margin-bottom: 10px;
+	}
+
+	.stat-label {
+		color: #8a7ba6;
+		font-weight: 700;
+	}
+
+	.stat-value {
+		font-size: clamp(1.3rem, 4vw, 1.8rem);
+		line-height: 1.25;
+	}
+
+	.stat-pink .stat-value,
+	.stat-pink .stat-icon {
+		color: #ff7eb9;
+	}
+
+	.stat-blue .stat-value,
+	.stat-blue .stat-icon {
+		color: #4da6ff;
+	}
+
+	.stat-green .stat-value,
+	.stat-green .stat-icon {
+		color: #33cc66;
+	}
+
+	.stat-purple .stat-value,
+	.stat-purple .stat-icon {
+		color: #9d7bff;
+	}
+
+	.floating-player {
+		bottom: 48px;
+		position: fixed;
+		right: 30px;
+		z-index: 1000;
+	}
+
+	.player-toggle {
+		align-items: center;
+		background: #ff7eb9;
+		border: 4px solid #ffffff;
+		border-radius: 50%;
+		box-shadow: 0 8px 25px rgba(255, 126, 185, 0.4);
+		color: #ffffff;
+		cursor: pointer;
+		display: flex;
+		font-size: 1.8rem;
+		height: 70px;
+		justify-content: center;
+		position: relative;
+		transition: transform 0.3s ease;
+		width: 70px;
+	}
+
+	.player-toggle:hover,
+	.player-toggle:focus-visible {
+		transform: scale(1.08);
+	}
+
+	.music-note {
+		animation: bounce 2s infinite;
+		font-size: 1.2rem;
+		position: absolute;
+		right: -5px;
+		top: -5px;
+	}
+
+	.player-popup {
+		backdrop-filter: blur(20px);
+		background: rgba(255, 255, 255, 0.98);
+		border: 3px solid #ffcfe5;
+		border-radius: 25px;
+		bottom: 85px;
+		box-shadow: 0 15px 40px rgba(255, 126, 185, 0.2);
+		display: none;
+		padding: 25px;
+		position: absolute;
+		right: 0;
+		width: min(320px, calc(100vw - 40px));
+		z-index: 1001;
+	}
+
+	.player-popup.is-open {
+		display: block;
+	}
+
+	.close-player {
+		background: transparent;
+		border: 0;
+		color: #ff7eb9;
+		cursor: pointer;
+		font-size: 1.2rem;
+		position: absolute;
+		right: 15px;
+		top: 15px;
+	}
+
+	.song-row {
+		align-items: center;
+		display: flex;
+		gap: 15px;
+		margin-bottom: 20px;
+	}
+
+	.album-art {
+		align-items: center;
+		background: linear-gradient(135deg, #ffb8e2, #a6c8ff);
+		border-radius: 15px;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		color: #ffffff;
+		display: flex;
+		flex: 0 0 auto;
+		font-size: 2rem;
+		height: 70px;
+		justify-content: center;
+		width: 70px;
+	}
+
+	.song-row h4 {
+		color: #ff7eb9;
+		font-size: 1.2rem;
+		margin-bottom: 5px;
+	}
+
+	#miniSongTitle {
+		color: #8a7ba6;
+		font-weight: 700;
+		line-height: 1.3;
+	}
+
+	#miniSongArtist {
+		color: #b8a8cc;
+		font-size: 0.9rem;
+		line-height: 1.3;
+		margin-top: 5px;
+	}
+
+	.progress-wrap,
+	.player-controls {
+		margin-bottom: 20px;
+	}
+
+	.time-row {
+		color: #ff7eb9;
+		display: flex;
+		font-family: "Comic Neue", cursive;
+		font-size: 0.9rem;
+		justify-content: space-between;
+		margin-bottom: 8px;
+	}
+
+	.progress-container {
+		background: #ffe4f4;
+		border-radius: 4px;
+		cursor: pointer;
+		height: 8px;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.progress-bar {
+		background: linear-gradient(to right, #ffb8e2, #ff7eb9);
+		border-radius: 4px;
+		height: 100%;
+		width: 0%;
+	}
+
+	.player-controls {
+		align-items: center;
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+	}
+
+	.mini-btn {
+		background: #ffe4f4;
+		border: 2px solid #ffcfe5;
+		border-radius: 50%;
+		color: #ff7eb9;
+		cursor: pointer;
+		font-size: 1.1rem;
+		height: 45px;
+		transition: transform 0.3s ease, background 0.3s ease;
+		width: 45px;
+	}
+
+	.play-btn {
+		background: #ff7eb9;
+		border: 0;
+		color: #ffffff;
+		font-size: 1.4rem;
+		height: 60px;
+		width: 60px;
+	}
+
+	.play-btn.is-playing {
+		background: #ff4d94;
+		transform: scale(1.1);
+	}
+
+	.volume-row {
+		align-items: center;
+		display: flex;
+		gap: 12px;
+	}
+
+	.volume-row i {
+		color: #ff7eb9;
+		font-size: 1.1rem;
+	}
+
+	#miniVolume {
+		accent-color: #ff7eb9;
+		cursor: pointer;
+		flex: 1;
+		height: 6px;
+	}
+
+	#miniVolumeValue {
+		color: #8a7ba6;
+		font-size: 0.9rem;
+		min-width: 35px;
+	}
+
+	footer {
+		background: rgba(255, 255, 255, 0.8);
+		border-top: 3px dashed #ffcfe5;
+		margin-top: 100px;
+		padding: 40px 0;
+		text-align: center;
+	}
+
+	.footer-lead {
+		font-size: 1.2rem;
+		margin-bottom: 20px;
+	}
+
+	.copyright {
+		color: #8a7ba6;
+		font-size: 0.9rem;
+		margin-top: 20px;
+	}
+
+	.heart {
+		animation: heartbeat 1.5s ease-in-out infinite;
+		color: #ff6ba9;
+		display: inline-block;
+	}
+
+	.emoji-layer {
+		inset: 0;
+		overflow: hidden;
+		pointer-events: none;
+		position: fixed;
+		z-index: 1;
+	}
+
+	.site-header,
+	main,
+	footer {
+		position: relative;
+		z-index: 2;
+	}
+
+	.floating-emoji {
+		animation: driftAcrossScreen linear infinite;
+		left: 0;
+		opacity: 0.16;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		transform: translate3d(-50%, var(--start-y), 0);
+		will-change: transform;
+	}
+
+	.floating-note {
+		animation: floatNote 3s ease-in-out infinite;
+		font-size: 1.5rem;
+		opacity: 0;
+		pointer-events: none;
+		position: absolute;
+		z-index: 999;
+	}
+
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+
+		50% {
+			transform: translateY(-20px);
+		}
+	}
+
+	@keyframes driftAcrossScreen {
+		0% {
+			transform: translate3d(-12vw, var(--start-y), 0) rotate(0deg);
+		}
+
+		50% {
+			transform: translate3d(calc(50vw + var(--drift-x)), calc(var(--start-y) + var(--drift-y)), 0)
+				rotate(180deg);
+		}
+
+		100% {
+			transform: translate3d(112vw, calc(var(--start-y) - var(--drift-y)), 0) rotate(360deg);
+		}
+	}
+
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+
+	@keyframes heartbeat {
+		0%,
+		100% {
+			transform: scale(1);
+		}
+
+		50% {
+			transform: scale(1.1);
+		}
+	}
+
+	@keyframes floatNote {
+		0% {
+			opacity: 0;
+			transform: translate(0, 0) rotate(0deg);
+		}
+
+		10%,
+		90% {
+			opacity: 0.8;
+		}
+
+		100% {
+			opacity: 0;
+			transform: translate(-25px, -130px) rotate(360deg);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.site-header {
+			padding: 18px 0;
+		}
+
+		.cloud-nav {
+			gap: 12px;
+		}
+
+		.nav-btn {
+			font-size: 0.95rem;
+			padding: 9px 14px;
+		}
+
+		.profile-pic {
+			height: 150px;
+			width: 150px;
+		}
+
+		.section {
+			padding: 70px 0;
+		}
+
+		.about-card,
+		.game-stats {
+			border-radius: 20px;
+			padding: 28px;
+		}
+
+		.floating-player {
+			bottom: 36px;
+			right: 20px;
+		}
+	}
+
+	@media (max-width: 520px) {
+		.container {
+			padding: 0 14px;
+		}
+
+		.cloud-nav {
+			gap: 8px;
+		}
+
+		.nav-btn {
+			font-size: 0.9rem;
+			gap: 6px;
+			padding: 8px 11px;
+		}
+
+		.hero {
+			min-height: auto;
+			padding: 64px 0 48px;
+		}
+
+		.hero::before {
+			right: 4%;
+			top: 24px;
+		}
+
+		.hero::after {
+			bottom: 28px;
+			left: 4%;
+		}
+
+		.profile-pic {
+			height: 132px;
+			width: 132px;
+		}
+
+		.tag-cloud {
+			gap: 10px;
+			margin: 28px 0 0;
+		}
+
+		.tag {
+			font-size: 0.95rem;
+			padding: 8px 12px;
+		}
+
+		.hobbies-grid,
+		.games-grid,
+		.gallery-grid,
+		.stats-grid {
+			gap: 18px;
+			grid-template-columns: 1fr;
+		}
+
+		.gallery-item {
+			height: 150px;
+		}
+
+		.floating-player {
+			bottom: 28px;
+			right: 14px;
+		}
+
+		.player-toggle {
+			font-size: 1.35rem;
+			height: 56px;
+			width: 56px;
+		}
+
+		.player-popup {
+			bottom: 68px;
+			padding: 18px;
+			width: calc(100vw - 28px);
+		}
+
+		.album-art {
+			font-size: 1.5rem;
+			height: 56px;
+			width: 56px;
+		}
+
+		.player-controls {
+			gap: 14px;
+		}
+	}
+</style>
