@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f3e9">
+  <title>Day & Night — A little change of atmosphere</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="./" aria-label="Day and Night home">d<span class="brand-dot">&</span>n<span class="brand-period">.</span></a>
+    <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Night mode">
+      <span class="switch-thumb"></span>
+      <svg class="switch-icon sun-icon" viewBox="0 0 32 32" role="img" aria-label="Sun"><circle cx="16" cy="16" r="6"/><path d="M16 2v4m0 20v4M2 16h4m20 0h4M6 6l3 3m14 14 3 3M6 26l3-3M23 9l3-3"/></svg>
+      <svg class="switch-icon moon-icon" viewBox="0 0 32 32" role="img" aria-label="Moon"><path d="M25 21A12 12 0 0 1 11 5a12 12 0 1 0 14 16Z"/><path class="spark" d="M24 4v6m-3-3h6"/></svg>
+    </button>
+    <span class="header-note">A little change of atmosphere</span>
+  </header>
+
+  <main>
+    <div class="eyebrow"><span></span> TWO MOODS. ONE LITTLE WORLD.</div>
+    <h1>Find your <em id="mood-word">sunshine.</em></h1>
+    <p class="intro" id="intro">A brighter outlook, a slower moment.<br>Sometimes all you need is a little light.</p>
+
+    <div class="landscape" role="img" aria-label="A golden sun above a peaceful green mountain landscape">
+      <div class="landscape-grain"></div>
+      <div class="stars" aria-hidden="true"></div>
+      <div class="celestial" aria-hidden="true"></div>
+      <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+      <div class="hill hill-back"></div><div class="hill hill-middle"></div><div class="hill hill-front"></div>
+      <div class="scene-label"><span class="scene-dot"></span><span id="scene-time">THE GOLDEN HOURS</span></div>
+      <span class="scene-number" aria-hidden="true">01 / 02</span>
+    </div>
+
+    <div class="caption"><span id="caption">Sun on your face. Nothing to rush.</span><span class="toggle-hint">Try the switch above <span aria-hidden="true">↗</span></span></div>
+  </main>
+  <footer><span>A moment for yourself.</span><span>DAY <span class="footer-line"></span> NIGHT</span><span>Same world. Different feeling.</span></footer>
+</body>
+</html>
