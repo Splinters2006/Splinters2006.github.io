@@ -4,180 +4,755 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f6f3e9">
+
   <title>Day & Night — A little change of atmosphere</title>
+
   <link rel="stylesheet" href="styles.css">
   <script src="scripts.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <button class="brand secret-trigger" type="button" aria-label="M and A heart">
-      <svg class="brand-heart" viewBox="0 0 80 72" aria-hidden="true">
-        <path d="M40 65C34 60 6 42 6 23C6 6 28 2 40 18C52 2 74 6 74 23C74 42 46 60 40 65Z"/>
-        <text x="40" y="37" text-anchor="middle">M&amp;A</text>
+
+<header>
+  <button
+    class="brand secret-trigger"
+    type="button"
+    aria-label="M and A heart"
+  >
+    <svg class="brand-heart" viewBox="0 0 80 72" aria-hidden="true">
+      <path d="M40 65C34 60 6 42 6 23C6 6 28 2 40 18C52 2 74 6 74 23C74 42 46 60 40 65Z"/>
+      <text x="40" y="37" text-anchor="middle">M&amp;A</text>
+    </svg>
+  </button>
+
+  <button
+    class="theme-switch"
+    type="button"
+    role="switch"
+    aria-checked="false"
+    aria-label="Night mode"
+  >
+    <span class="switch-thumb"></span>
+
+    <img
+      class="switch-icon moon-icon"
+      src="assets/mira.png"
+      alt="Night"
+      title="Night"
+      width="36"
+      height="36"
+    >
+
+    <img
+      class="switch-icon sun-icon"
+      src="assets/mino.png"
+      alt="Day"
+      title="Day"
+      width="36"
+      height="36"
+    >
+  </button>
+
+  <span class="header-note">
+    A little change of atmosphere
+  </span>
+</header>
+
+
+<main>
+
+  <div class="eyebrow">
+    <span></span>
+    TWO MOODS. ONE LITTLE WORLD.
+  </div>
+
+  <h1>
+    Find your <em id="mood-word">sunshine.</em>
+  </h1>
+
+  <p class="intro" id="intro">
+    A brighter outlook, a slower moment.<br>
+    Sometimes all you need is a little light.
+  </p>
+
+
+  <!-- ==================================================
+       INTRODUCTION
+  =================================================== -->
+
+  <section
+    class="introduction-section"
+    aria-labelledby="introduction-heading"
+  >
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        01 / INTRODUCTION
+      </span>
+
+      <h2 id="introduction-heading">
+        A little about<br>
+        <em>this space.</em>
+      </h2>
+
+    </div>
+
+    <div class="introduction-copy">
+
+      <p>
+        Welcome to our little corner of the world.
+        A place for favorite pictures, small moments,
+        and the things that make us smile.
+      </p>
+
+      <a class="pictures-link" href="#pictures">
+        Explore the pictures
+        <span aria-hidden="true">↓</span>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       PICTURES
+  =================================================== -->
+
+  <section
+    class="pictures-section"
+    id="pictures"
+    aria-labelledby="pictures-heading"
+  >
+
+    <div class="pictures-heading">
+
+      <div>
+        <span class="section-number">
+          02 / PICTURES
+        </span>
+
+        <h2 id="pictures-heading">
+          A few <em>favorites.</em>
+        </h2>
+      </div>
+
+      <p>Little pieces of our world.</p>
+
+    </div>
+
+
+    <div class="pictures-grid">
+
+
+      <!-- =========================
+           NIGHT PICTURES
+      ========================== -->
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="dark"
+      >
+
+        <a
+          href="assets/mira.png"
+          aria-label="View full-size Mira picture"
+        >
+
+          <img
+            src="assets/mira.png"
+            alt="Mira"
+            width="639"
+            height="639"
+            loading="lazy"
+          >
+
+        </a>
+
+        <figcaption>
+          <span class="picture-note">
+            Moonlight
+          </span>
+        </figcaption>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="dark"
+      >
+
+        <a
+          href="assets/artwork-440x440.jpg"
+          aria-label="View full-size artwork"
+        >
+
+          <img
+            src="assets/artwork-440x440.jpg"
+            alt="Artwork"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+        <figcaption>
+          <span>Artwork</span>
+          <span class="picture-note">
+            Moonlight
+          </span>
+        </figcaption>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="dark"
+      >
+
+        <a
+          href="assets/mira2.jpg"
+          aria-label="View full-size Mira 2 picture"
+        >
+
+          <img
+            src="assets/mira2.jpg"
+            alt="Mira 2"
+            width="728"
+            height="410"
+            loading="lazy"
+          >
+
+        </a>
+
+        <figcaption>
+          <span class="picture-note">
+            Moonlight
+          </span>
+        </figcaption>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="dark"
+      >
+
+        <a
+          href="assets/mira3.jpg"
+          aria-label="View full-size Mira 3 picture"
+        >
+
+          <img
+            src="assets/mira3.jpg"
+            alt="Mira 3"
+            width="496"
+            height="445"
+            loading="lazy"
+          >
+
+        </a>
+
+        <figcaption>
+          <span class="picture-note">
+            Moonlight
+          </span>
+        </figcaption>
+
+      </figure>
+
+
+      <!-- =========================
+           SUN PICTURES
+      ========================== -->
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="light"
+      >
+
+        <a
+          href="assets/mino.png"
+          aria-label="View full-size Mino picture"
+        >
+
+          <img
+            src="assets/mino.png"
+            alt="Mino"
+            width="256"
+            height="256"
+            loading="lazy"
+          >
+
+        </a>
+
+        <figcaption>
+          <span class="picture-note">
+            Sunshine
+          </span>
+        </figcaption>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="light"
+      >
+
+        <a
+          href="assets/mino2.jpg"
+          aria-label="View full-size Mino 2 picture"
+        >
+
+          <img
+            src="assets/mino2.jpg"
+            alt="Mino 2"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+        <figcaption>
+          <span class="picture-note">
+            Sunshine
+          </span>
+        </figcaption>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="light"
+      >
+
+        <a
+          href="assets/mino3.jpg"
+          aria-label="View full-size Mino 3 picture"
+        >
+
+          <img
+            src="assets/mino3.jpg"
+            alt="Mino 3"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+        <figcaption>
+          <span class="picture-note">
+            Sunshine
+          </span>
+        </figcaption>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="light"
+      >
+
+        <a
+          href="assets/mino4.jpg"
+          aria-label="View full-size Mino 4 picture"
+        >
+
+          <img
+            src="assets/mino4.jpg"
+            alt="Mino 4"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+        <figcaption>
+          <span class="picture-note">
+            Sunshine
+          </span>
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================================
+       PETS
+  =================================================== -->
+
+  <section
+    class="pets-section"
+    id="pets"
+    aria-labelledby="pets-heading"
+  >
+
+    <div class="pictures-heading">
+
+      <div>
+
+        <span class="section-number">
+          03 / PETS
+        </span>
+
+        <h2 id="pets-heading">
+          Our little <em>companions.</em>
+        </h2>
+
+      </div>
+
+      <p>
+        A little more love in our world.
+      </p>
+
+    </div>
+
+
+    <div class="pictures-grid">
+
+
+      <!-- NIGHT PETS -->
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="dark"
+      >
+
+        <a
+          href="assets/mirapet1.jpg"
+          aria-label="View full-size Mira pet picture 1"
+        >
+
+          <img
+            src="assets/mirapet1.jpg"
+            alt="Mira pet photo 1"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="dark"
+      >
+
+        <a
+          href="assets/mirapet2.jpg"
+          aria-label="View full-size Mira pet picture 2"
+        >
+
+          <img
+            src="assets/mirapet2.jpg"
+            alt="Mira pet photo 2"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="dark"
+      >
+
+        <a
+          href="assets/mirapet3.jpg"
+          aria-label="View full-size Mira pet picture 3"
+        >
+
+          <img
+            src="assets/mirapet3.jpg"
+            alt="Mira pet photo 3"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+      </figure>
+
+
+      <!-- SUN PETS -->
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="light"
+      >
+
+        <a
+          href="assets/minopet1.jpg"
+          aria-label="View full-size Mino pet picture 1"
+        >
+
+          <img
+            src="assets/minopet1.jpg"
+            alt="Mino pet photo 1"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="light"
+      >
+
+        <a
+          href="assets/minopet2.jpg"
+          aria-label="View full-size Mino pet picture 2"
+        >
+
+          <img
+            src="assets/minopet2.jpg"
+            alt="Mino pet photo 2"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+      </figure>
+
+
+      <figure
+        class="picture-card"
+        data-gallery-theme="light"
+      >
+
+        <a
+          href="assets/minopet3.jpg"
+          aria-label="View full-size Mino pet picture 3"
+        >
+
+          <img
+            src="assets/minopet3.jpg"
+            alt="Mino pet photo 3"
+            width="440"
+            height="440"
+            loading="lazy"
+          >
+
+        </a>
+
+      </figure>
+
+    </div>
+
+
+    <div class="pets-placeholder">
+
+      <svg
+        class="pet-paw"
+        viewBox="0 0 64 64"
+        aria-hidden="true"
+      >
+
+        <ellipse
+          cx="13"
+          cy="25"
+          rx="6"
+          ry="8"
+          transform="rotate(-25 13 25)"
+        />
+
+        <ellipse
+          cx="25"
+          cy="15"
+          rx="6"
+          ry="8"
+          transform="rotate(-10 25 15)"
+        />
+
+        <ellipse
+          cx="40"
+          cy="15"
+          rx="6"
+          ry="8"
+          transform="rotate(10 40 15)"
+        />
+
+        <ellipse
+          cx="52"
+          cy="25"
+          rx="6"
+          ry="8"
+          transform="rotate(25 52 25)"
+        />
+
+        <path d="M32 29c-7 0-10 7-16 14-5 7-1 14 6 13 5-1 7-3 10-3s5 2 10 3c7 1 11-6 6-13-6-7-9-14-16-14Z"/>
+
       </svg>
-    </button>
-    <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Night mode">
-      <span class="switch-thumb"></span>
-      <img class="switch-icon moon-icon" src="assets/mira.png" alt="Night" title="Night" width="36" height="36">
-      <img class="switch-icon sun-icon" src="assets/mino.png" alt="Day" title="Day" width="36" height="36">
-    </button>
-    <span class="header-note">A little change of atmosphere</span>
-  </header>
 
-  <main>
-    <div class="eyebrow"><span></span> TWO MOODS. ONE LITTLE WORLD.</div>
-    <h1>Find your <em id="mood-word">sunshine.</em></h1>
-    <p class="intro" id="intro">A brighter outlook, a slower moment.<br>Sometimes all you need is a little light.</p>
+      <p>
+        Pet pictures coming soon.
+      </p>
 
-    <section class="introduction-section" aria-labelledby="introduction-heading">
-      <div class="section-heading">
-        <span class="section-number">01 / INTRODUCTION</span>
-        <h2 id="introduction-heading">A little about<br><em>this space.</em></h2>
-      </div>
-      <div class="introduction-copy">
-        <p>Welcome to our little corner of the world. A place for favorite pictures, small moments, and the things that make us smile.</p>
-        <a class="pictures-link" href="#pictures">Explore the pictures <span aria-hidden="true">↓</span></a>
-      </div>
-    </section>
+    </div>
 
-    <section class="pictures-section" id="pictures" aria-labelledby="pictures-heading">
-      <div class="pictures-heading">
-        <div>
-          <span class="section-number">02 / PICTURES</span>
-          <h2 id="pictures-heading">A few <em>favorites.</em></h2>
+  </section>
+
+
+  <!-- ==================================================
+       MUSIC
+  =================================================== -->
+
+  <section
+    class="music-section"
+    id="music"
+    aria-labelledby="music-heading"
+  >
+
+    <div class="pictures-heading">
+
+      <div>
+
+        <span class="section-number">
+          04 / MUSIC
+        </span>
+
+        <h2 id="music-heading">
+          Our little <em>soundtrack.</em>
+        </h2>
+
+      </div>
+
+      <p>
+        A song for every moment.
+      </p>
+
+    </div>
+
+
+    <div class="music-player">
+
+      <div class="music-now-playing">
+
+        <span
+          class="music-symbol"
+          aria-hidden="true"
+        >
+          ♫
+        </span>
+
+
+        <div class="music-track-info">
+
+          <span class="section-number">
+            ON THE RECORD
+          </span>
+
+          <h3 id="track-title">
+            Your soundtrack starts here.
+          </h3>
+
+          <p
+            id="music-status"
+            role="status"
+          >
+            Loading music...
+          </p>
+
         </div>
-        <p>Little pieces of our world.</p>
+
       </div>
-      <div class="pictures-grid">
-        <figure class="picture-card" data-gallery-theme="dark">
-          <a href="assets/mira.png" aria-label="View full-size Mira picture">
-            <img src="assets/mira.png" alt="Illustration of a dark-haired character facing a silver-haired character" width="639" height="639" loading="lazy">
-          </a>
-          <figcaption><span class="picture-note">Moonlight</span></figcaption>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="dark">
-          <a href="assets/artwork-440x440.jpg" aria-label="View full-size artwork">
-            <img src="assets/artwork-440x440.jpg" alt="Purple and pink illustration of a girl holding a flip phone surrounded by cartoon characters" width="440" height="440" loading="lazy">
-          </a>
-          <figcaption><span>Artwork</span><span class="picture-note">Moonlight</span></figcaption>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="dark">
-          <a href="assets/mira2.jpg" aria-label="View full-size Mira 2 picture">
-            <img src="assets/mira2.jpg" alt="Silhouetted sword-wielding character and floating robot overlooking a misty ruined city" width="728" height="410" loading="lazy">
-          </a>
-          <figcaption><span class="picture-note">Moonlight</span></figcaption>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="dark">
-          <a href="assets/mira3.jpg" aria-label="View full-size Mira 3 picture">
-            <img src="assets/mira3.jpg" alt="Colorful cartoon character wearing a pink cat-shaped hat with oversized sunglasses" width="496" height="445" loading="lazy">
-          </a>
-          <figcaption><span class="picture-note">Moonlight</span></figcaption>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="light">
-          <a href="assets/mino.png" aria-label="View full-size Mino picture">
-            <img src="assets/mino.png" alt="Illustration of a silver-haired character looking toward a dark-haired character" width="256" height="256" loading="lazy">
-          </a>
-          <figcaption><span class="picture-note">Sunshine</span></figcaption>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="light" data-image-base="assets/mino2" hidden>
-          <a aria-label="View full-size Mino 2 picture">
-            <img alt="Mino 2" width="440" height="440">
-          </a>
-          <figcaption><span class="picture-note">Sunshine</span></figcaption>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="light" data-image-base="assets/mino3" hidden>
-          <a aria-label="View full-size Mino 3 picture">
-            <img alt="Mino 3" width="440" height="440">
-          </a>
-          <figcaption><span class="picture-note">Sunshine</span></figcaption>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="light" data-image-base="assets/mino4" hidden>
-          <a aria-label="View full-size Mino 4 picture">
-            <img alt="Mino 4" width="440" height="440">
-          </a>
-          <figcaption><span class="picture-note">Sunshine</span></figcaption>
-        </figure>
-      </div>
-    </section>
-    <section class="pets-section" id="pets" aria-labelledby="pets-heading">
-      <div class="pictures-heading">
-        <div>
-          <span class="section-number">03 / PETS</span>
-          <h2 id="pets-heading">Our little <em>companions.</em></h2>
+
+
+      <audio
+        id="music-audio"
+        controls
+        preload="metadata"
+        aria-label="Music playback"
+      ></audio>
+
+
+      <div class="music-actions">
+
+        <div class="music-navigation">
+
+          <button
+            id="previous-track"
+            class="music-button"
+            type="button"
+            disabled
+          >
+            ← Previous
+          </button>
+
+          <button
+            id="next-track"
+            class="music-button"
+            type="button"
+            disabled
+          >
+            Next →
+          </button>
+
         </div>
-        <p>A little more love in our world.</p>
+
       </div>
-      <div class="pictures-grid">
-        <figure class="picture-card" data-gallery-theme="dark" data-image-base="assets/mirapet1" hidden>
-          <a aria-label="View full-size Mira pet picture 1">
-            <img alt="Mira pet photo 1" width="440" height="440">
-          </a>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="dark" data-image-base="assets/mirapet2" hidden>
-          <a aria-label="View full-size Mira pet picture 2">
-            <img alt="Mira pet photo 2" width="440" height="440">
-          </a>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="dark" data-image-base="assets/mirapet3" hidden>
-          <a aria-label="View full-size Mira pet picture 3">
-            <img alt="Mira pet photo 3" width="440" height="440">
-          </a>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="light" data-image-base="assets/minopet1" hidden>
-          <a aria-label="View full-size Mino pet picture 1">
-            <img alt="Mino pet photo 1" width="440" height="440">
-          </a>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="light" data-image-base="assets/minopet2" hidden>
-          <a aria-label="View full-size Mino pet picture 2">
-            <img alt="Mino pet photo 2" width="440" height="440">
-          </a>
-        </figure>
-        <figure class="picture-card" data-gallery-theme="light" data-image-base="assets/minopet3" hidden>
-          <a aria-label="View full-size Mino pet picture 3">
-            <img alt="Mino pet photo 3" width="440" height="440">
-          </a>
-        </figure>
-      </div>
-      <div class="pets-placeholder">
-        <svg class="pet-paw" viewBox="0 0 64 64" aria-hidden="true">
-          <ellipse cx="13" cy="25" rx="6" ry="8" transform="rotate(-25 13 25)"/>
-          <ellipse cx="25" cy="15" rx="6" ry="8" transform="rotate(-10 25 15)"/>
-          <ellipse cx="40" cy="15" rx="6" ry="8" transform="rotate(10 40 15)"/>
-          <ellipse cx="52" cy="25" rx="6" ry="8" transform="rotate(25 52 25)"/>
-          <path d="M32 29c-7 0-10 7-16 14-5 7-1 14 6 13 5-1 7-3 10-3s5 2 10 3c7 1 11-6 6-13-6-7-9-14-16-14Z"/>
-        </svg>
-        <p>Pet pictures coming soon.</p>
-      </div>
-    </section>
-    <section class="music-section" id="music" aria-labelledby="music-heading">
-      <div class="pictures-heading">
-        <div>
-          <span class="section-number">04 / MUSIC</span>
-          <h2 id="music-heading">Our little <em>soundtrack.</em></h2>
-        </div>
-        <p>A song for every moment.</p>
-      </div>
-      <div class="music-player">
-        <div class="music-now-playing">
-          <span class="music-symbol" aria-hidden="true">♫</span>
-          <div class="music-track-info">
-            <span class="section-number">ON THE RECORD</span>
-            <h3 id="track-title">Your soundtrack starts here.</h3>
-            <p id="music-status" role="status">Looking for music...</p>
-          </div>
-        </div>
-        <audio id="music-audio" controls preload="metadata" aria-label="Music playback"></audio>
-        <div class="music-actions">
-          <div class="music-navigation">
-            <button id="previous-track" class="music-button" type="button" disabled>← Previous</button>
-            <button id="next-track" class="music-button" type="button" disabled>Next →</button>
-          </div>
-        </div>
-        <ol id="music-playlist" class="music-playlist" aria-label="Playlist" hidden></ol>
-      </div>
-    </section>
-  </main>
-  <footer><span>A moment for yourself.</span><span>DAY <span class="footer-line"></span> NIGHT</span><span>Same world. Different feeling.</span></footer>
+
+
+      <ol
+        id="music-playlist"
+        class="music-playlist"
+        aria-label="Playlist"
+        hidden
+      ></ol>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <span>
+    A moment for yourself.
+  </span>
+
+  <span>
+    DAY
+    <span class="footer-line"></span>
+    NIGHT
+  </span>
+
+  <span>
+    Same world. Different feeling.
+  </span>
+
+</footer>
+
 </body>
 </html>
