@@ -1,5 +1,3 @@
-// Prépare les fichiers statiques et les métadonnées pour l'URL réelle de Pages.
-// Aucun paquet externe : Node.js suffit (déjà présent sur le runner GitHub).
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';

@@ -1,4 +1,3 @@
-// Les liens de Metwo. Modifier cette liste pour mettre les destinations à jour.
 window.METWO_PROFILE = Object.freeze({
   twitch: 'https://www.twitch.tv/metwovt',
   discord: 'https://discord.gg/vyqNeyVcND',

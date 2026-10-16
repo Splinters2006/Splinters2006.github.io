@@ -31,6 +31,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Prepare static site
+        working-directory: afterhours
         env:
           PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
         run: |
@@ -41,7 +42,7 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: _site
+          path: afterhours/_site
 
       - name: Deploy
         id: deployment
